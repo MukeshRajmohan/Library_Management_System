@@ -1,89 +1,117 @@
-# Library Management System
+# 📚 Library Management System
 
-## Overview
+## 📌 Project Overview
+The **Library Management System** is a **database-driven software solution** designed to **automate and streamline library operations**. It manages **physical and digital resources** such as **books, e-books, magazines, and audiobooks**, enhancing accessibility and efficiency for both **library users and staff**.
 
-The Library Management System is a software solution designed to automate and streamline the management of library operations. It facilitates efficient handling of various resources such as books, magazines, e-books, and audiobooks, enhancing the experience for both library users and staff. The system aims to optimize resource management processes and improve accessibility.
+### 🎯 Objectives:
+- **Efficiently manage** library materials, members, and staff.
+- **Track borrowing transactions**, due dates, and overdue books.
+- **Generate reports & analytics** for administrative decision-making.
 
-## Scope
+---
 
-The project involves designing and implementing a **database management system** for a public library. The system enables:
-- **Efficient management** of library materials, members, and staff.
-- **Tracking** of borrowing transactions and overdue materials.
-- **Reporting and analytics** for administrative use.
+## 📂 Project Files
+- **📄 Project Documentation**
+- **📜 SQL Schema & Queries:** `Project.sql`
+- **📂 Data Import CSVs:** (For bulk data population)
 
-### Key Features
-- **Cataloging of Materials:** Manage books, e-books, and audiobooks with attributes like title, publication date, and genre.
-- **Member Management:** Maintain records of library members, including contact details and membership information.
-- **Borrowing & Returns:** Track issued materials, due dates, and returned books.
-- **Author & Authorship Tracking:** Maintain author details and link them to their respective works.
-- **Staff Management:** Manage library employees, their roles, and assigned tasks.
-- **Search & Query Capabilities:** Users can search for materials using title, author, or genre.
+---
 
-## Database Design
+## 🔑 Key Features
+- **📖 Cataloging of Materials:** Store details about books, e-books, and audiobooks.
+- **🧑‍💻 Member Management:** Maintain **library user records** including membership details.
+- **🔄 Borrowing & Returns:** Track **issued materials, due dates, and overdue books**.
+- **✍️ Author & Authorship Tracking:** Maintain author details and **link books to authors**.
+- **📋 Staff Management:** Manage **library employees, their roles, and tasks**.
+- **🔎 Search & Query Capabilities:** Search **books by title, author, or genre**.
 
-The system follows a **relational database model** implemented in **PostgreSQL**. The key entities and their attributes include:
+---
 
-### Entities:
-1. **Material:** Represents books, e-books, and other resources.
-2. **Catalog:** Stores information about the physical or digital location of materials.
-3. **Genre:** Categorizes materials (e.g., Fiction, Non-fiction).
-4. **Borrow:** Records borrowing activities, including due dates and return dates.
-5. **Author:** Stores details about book authors.
-6. **Authorship:** Links authors to their respective books.
-7. **Member:** Represents library users who borrow materials.
-8. **Staff:** Represents library employees managing operations.
+## 🗃️ Database Design
 
-### Relationships:
-- Each **Material** belongs to a **Catalog**.
-- Each **Material** is assigned to a **Genre**.
-- **Authorship** connects authors with the books they have written.
-- **Borrow** links materials to members and staff who process transactions.
+The system follows a **relational database model** implemented in **PostgreSQL**.
 
-## Technology Stack
+### **Entities & Relationships**
+| Entity | Description |
+|--------|------------|
+| **Material** | Represents books, e-books, and other resources. |
+| **Catalog** | Stores information about the physical or digital location of materials. |
+| **Genre** | Categorizes materials (e.g., Fiction, Non-fiction). |
+| **Borrow** | Records borrowing activities, including due dates and return dates. |
+| **Author** | Stores details about book authors. |
+| **Authorship** | Links authors to their respective books. |
+| **Member** | Represents library users who borrow materials. |
+| **Staff** | Represents library employees managing operations. |
 
+### **Relationships**
+- Each **Material** belongs to a **Catalog** and is assigned to a **Genre**.
+- **Authorship** links authors with their books.
+- **Borrow** connects **materials, members, and staff** for transaction tracking.
+
+---
+
+## 🛠️ Technology Stack
 - **Database:** PostgreSQL
 - **Query Language:** SQL
-- **Data Storage:** CSV file imports for bulk data population
+- **Data Storage:** CSV files for initial data imports
 
-## Database Implementation
+---
 
-The database is structured using **PostgreSQL**, ensuring data integrity and efficient querying. It includes:
+## 📊 Database Implementation
+The database is designed to ensure **data integrity and efficient querying** through:
+- **📜 Schema Definition:** SQL scripts for tables, constraints, and relationships.
+- **📂 Data Population:** CSV files for bulk insertion of records.
+- **🔎 Querying & Manipulation:** Supports **CRUD operations (Create, Read, Update, Delete)**.
+- **📊 Advanced SQL Queries:** Implements **joins, aggregation, and subqueries**.
 
-- **Schema Creation:** SQL scripts define tables, constraints, and relationships.
-- **Data Population:** CSV files load initial data into tables.
-- **Querying & Manipulation:** Includes searching, inserting, updating, and deleting records.
-- **Advanced SQL Queries:** Supports joins, aggregation, and subqueries.
+---
 
-## Sample Queries
+## 📋 Sample Queries
+The system supports various administrative and user queries, such as:
 
-The system supports various administrative and user queries, including:
+| Query Type | Description |
+|------------|------------|
+| **Available Materials** | Identify books currently available for borrowing. |
+| **Overdue Materials** | List all books that have exceeded their due date. |
+| **Most Borrowed Books** | Retrieve the **top 10 most borrowed books**. |
+| **Author Contributions** | Count the number of books an author has written. |
+| **Genre Popularity** | Rank genres based on borrowing frequency. |
 
-- **Available Materials:** Identify books currently available for borrowing.
-- **Overdue Materials:** List materials that have exceeded their due date.
-- **Most Borrowed Books:** Identify the top 10 most borrowed books.
-- **Author Contributions:** Count how many books an author has written.
-- **Genre Popularity:** Rank genres by borrowing frequency.
+---
 
-## Automation & Enhancements
-
+## 🔄 Automation & Enhancements
 The system includes automated processes for:
-- **Daily Overdue Notifications:** A scheduled query alerts staff about overdue books.
-- **Membership Deactivation & Reactivation:** If a member has three overdue instances, their membership is suspended until overdue fees are paid.
+- **📅 Daily Overdue Notifications:** Alerts staff about overdue books.
+- **⛔ Membership Suspension:** **Auto-suspends** members after three overdue instances.
+- **✅ Reactivation Process:** Membership is reactivated once overdue fees are cleared.
 
-## How to Run the Project
+---
 
-### Prerequisites:
-1. Install **PostgreSQL**.
-2. Ensure the `Project.sql` file is available.
+## ⚙️ How to Run the Project
 
-### Steps to Execute:
-1. Open a PostgreSQL client.
-2. Run the schema creation queries from `Project.sql`.
-3. Load data using the provided CSV imports.
-4. Execute sample queries to validate functionality.
+### **1️⃣ Prerequisites**
+- Install **PostgreSQL**.
+- Ensure the SQL script (`Project.sql`) is available.
 
-## Contributors
-- **Mukesh Rajmohan**
-- **Pranavi Rao Lingala**
+### **2️⃣ Execution Steps**
+1. Open a **PostgreSQL client** (e.g., pgAdmin, psql).
+2. **Run the schema creation script** from `Project.sql`.
+3. **Load data** using the provided **CSV files**.
+4. **Execute sample queries** to test functionality.
+
+---
+
+## 📚 References
+- **PostgreSQL Documentation:** [Official PostgreSQL Docs](https://www.postgresql.org/docs/)
+- **SQL Query Optimization:** [SQL Performance Tips](https://www.sqlshack.com/sql-performance-tuning/)
+- **Database Normalization:** [Database Design Guide](https://www.guru99.com/database-normalization.html)
+
+---
+
+## 🤝 Contributors
+👤 **Mukesh Rajmohan** - *Database Design & Implementation*  
+👤 **Pranavi Rao Lingala** - *System Architecture & Query Optimization*
+
+For any queries or contributions, feel free to raise an issue! 🚀
 
 ---
